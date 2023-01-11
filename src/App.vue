@@ -1,8 +1,11 @@
 <template>
   <v-layout>
-    <v-app-bar class="text-center">
-      <v-spacer></v-spacer>
-      <v-app-bar-title><strong>MovieGet</strong></v-app-bar-title>
+    <v-app-bar>
+      <v-app-bar-title>
+        <router-link to="/">
+          <img src="@/assets/logo.svg" alt="Logo" height="50"/>
+        </router-link>
+      </v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn value="profile" icon to="/profile">
         <v-icon>mdi-account-box-multiple</v-icon>
@@ -29,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   name: "App",
   data() {

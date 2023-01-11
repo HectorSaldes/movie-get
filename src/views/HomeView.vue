@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-h4 text-center my-1">🍿 Select your favorites movies or block them</h1>
+  <h1 class="text-center my-1">🍿 Select your favorites movies or block them</h1>
   <div class="text-center">
     Press the
     <v-icon icon="mdi-keyboard"/>

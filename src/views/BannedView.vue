@@ -1,16 +1,17 @@
 <template>
-  <h4 class="text-h4 text-center my-1">🚫 Here are your banned movies</h4>
+  <h1 class="text-center my-1">🚫 Here are your banned movies</h1>
   <div class="text-center">
     Press the
     <v-icon icon="mdi-lock-open-variant"/>
     (unlock) to remove the movie from your banned list
   </div>
   <v-container>
-    <v-row justify="center">
+    <v-row v-if="movies.length>0" justify="center">
       <v-col sm="6" md="6" lg="2" v-for="(movie, index) in movies" :key="index">
         <CardBlockedMovie :movie="movie" @onClickParent="onClick"/>
       </v-col>
     </v-row>
+    <CardEmpty v-else/>
   </v-container>
   <v-snackbar :timeout="3000" v-bind:color="snackbar.color" v-model="snackbar.active">
     <p class="text-h6 text-center">{{ snackbar.text }}</p>
@@ -21,11 +22,13 @@
 
 import StoreService from "@/service/StoreService";
 import CardBlockedMovie from "@/components/CardBlockedMovie.vue";
+import CardEmpty from "@/components/CardEmpty.vue";
 
 export default {
   name: "BlockedView",
   components: {
-    CardBlockedMovie
+    CardBlockedMovie,
+    CardEmpty,
   },
   data() {
     return {
